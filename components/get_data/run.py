@@ -25,7 +25,7 @@ def go(args):
         args.artifact_name,
         args.artifact_type,
         args.artifact_description,
-        os.path.join("data", args.sample),
+        os.path.join("data", args.sample),# looks like path be on my local machine, not github
         run,
     )
 
