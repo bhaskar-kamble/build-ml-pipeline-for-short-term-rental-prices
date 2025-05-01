@@ -39,8 +39,13 @@ def go(config: DictConfig):
             # Download file and load in W&B
             _ = mlflow.run(
                 f"{config['main']['components_repository']}/get_data",
+                # above translates to https://github.com/udacity/build-ml-pipeline-for-short-term-rental-prices#components/get_data, 
+                # but this does not take me to the page containing the MLproject file. Rather 
+                # https://github.com/udacity/build-ml-pipeline-for-short-term-rental-prices/tree/main/components/get_data takes me there
+                # or better still the forked version:
+                # https://github.com/bhaskar-kamble/build-ml-pipeline-for-short-term-rental-prices/tree/main/components/get_data
                 "main",
-                version='main',
+                version='main', # For Git-based projects, either a commit hash or a branch name.
                 env_manager="conda",
                 parameters={
                     "sample": config["etl"]["sample"],
@@ -53,14 +58,35 @@ def go(config: DictConfig):
         if "basic_cleaning" in active_steps:
             ##################
             # Implement here #
+            _ = mlflow.run(
+                os.path.join(hydra.utils.get_original_cwd(), "src", "basic_cleaning"),
+                "main",
+                parameters={
+                  "input_artifact": "sample.csv:latest",
+                  "output_artifact": "clean_sample.csv",
+                  "output_type": "clean_sample",
+                  "output_description": "Data with outliers and null values removed",
+                  "min_price": config['etl']['min_price'],
+                  "max_price": config['etl']['max_price']
+                }
+            )
             ##################
-            pass
 
         if "data_check" in active_steps:
             ##################
             # Implement here #
             ##################
-            pass
+            _ = mlflow.run(
+                os.path.join(hydra.utils.get_original_cwd(), "src", "data_check"),
+                "main",
+                parameters={
+                    "csv":"clean_sample.csv:latest",
+                    "ref":"clean_sample.csv:reference",
+                    "kl_threshold":config["data_check"]["kl_threshold"],
+                    "min_price":config["etl"]["min_price"],
+                    "max_price":config["etl"]["max_price"]
+                }
+            )
 
         if "data_split" in active_steps:
             ##################
