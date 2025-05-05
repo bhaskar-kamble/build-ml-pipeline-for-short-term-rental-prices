@@ -41,7 +41,7 @@ logger = logging.getLogger()
 def go(args):
 
     #run = wandb.init(job_type="train_random_forest")
-    run = wandb.init(job_type="trf_3")
+    run = wandb.init(job_type="trf_4")
     run.config.update(args)
 
     # Get the Random Forest configuration and update W&B
@@ -177,7 +177,8 @@ def get_inference_pipeline(rf_config, max_tfidf_features):
     # NOTE: we do not need to impute room_type because the type of the room
     # is mandatory on the websites, so missing values are not possible in production
     # (nor during training). That is not true for neighbourhood_group
-    ordinal_categorical_preproc = OrdinalEncoder(categories=[['Shared room', 'Private room', 'Entire home/apt']])
+    #ordinal_categorical_preproc = OrdinalEncoder(categories=[['Shared room', 'Private room', 'Entire home/apt']])
+    ordinal_categorical_preproc = OrdinalEncoder()
 
     ######################################
     # Build a pipeline with two steps:
