@@ -1,6 +1,6 @@
 # Short Description
 
-This repo contains my solution to the course project for the course *Building a Reproducible Model Workflow*, the second course of the Machine Learning DevOps Engineer Nanodegree Program offered by Udacity. This repo was forked from the original course project repo at [https://github.com/udacity/build-ml-pipeline-for-short-term-rental-prices].
+This repo contains my solution to the course project for the course *Building a Reproducible Model Workflow*, the second course of the Machine Learning DevOps Engineer Nanodegree Program offered by Udacity. This repo was forked from the original course project repo at [https://github.com/udacity/build-ml-pipeline-for-short-term-rental-prices](https://github.com/udacity/build-ml-pipeline-for-short-term-rental-prices).
 
 The project requires to: 
 
@@ -12,9 +12,9 @@ The ML workflow in this project was created with Mlflow. Artifact versioning and
 
 # Important Links Related to the Submission
 
-* The wandb link to the project is here: [https://wandb.ai/kbhaskar-between-jobs/nyc_airbnb] . 
+* The wandb link to the project is here: [https://wandb.ai/kbhaskar-between-jobs/nyc_airbnb](https://wandb.ai/kbhaskar-between-jobs/nyc_airbnb) . 
 
-* The pipeline is released here: [https://github.com/bhaskar-kamble/build-ml-pipeline-for-short-term-rental-prices/releases/tag/1.0.1].
+* The pipeline is released here: [https://github.com/bhaskar-kamble/build-ml-pipeline-for-short-term-rental-prices/releases/tag/1.0.1](https://github.com/bhaskar-kamble/build-ml-pipeline-for-short-term-rental-prices/releases/tag/1.0.1).
 
 # Notes for using the pipeline:
 
@@ -24,7 +24,7 @@ The ML workflow in this project was created with Mlflow. Artifact versioning and
 > mlflow run https://github.com/bhaskar-kamble/build-ml-pipeline-for-short-term-rental-prices.git -v 1.0.1 -P hydra_options="etl.sample='sample2.csv'"
 ```
 
-***Note to the evaluator:*** Some of the runs for the job type `train_random_forest` during the hyper-parameter optimization were not succesful (for some reason a `BrokenPipeError` was generated during some of the runs, which, while they did not interrupt the flow of the program, may have resulted in these runs not being finished succesfully). Hence I redid this by setting `job_type` as `trf_4`. The best hyperparmater combination for the random forest model is created by the run `tusken-cantina-67` under this job type, as can be seen on the wandb project page: [https://wandb.ai/kbhaskar-between-jobs/nyc_airbnb].
+***Note to the evaluator:*** Some of the runs for the job type `train_random_forest` during the hyper-parameter optimization were not succesful (for some reason a `BrokenPipeError` was generated during some of the runs, which, while they did not interrupt the flow of the program, may have resulted in these runs not being finished succesfully). Hence I redid this by setting `job_type` as `trf_4`. The best hyperparmater combination for the random forest model is created by the run `tusken-cantina-67` under this job type, as can be seen on the wandb project page: [https://wandb.ai/kbhaskar-between-jobs/nyc_airbnb](https://wandb.ai/kbhaskar-between-jobs/nyc_airbnb).
 
 # Considerations for Future Releases
 
