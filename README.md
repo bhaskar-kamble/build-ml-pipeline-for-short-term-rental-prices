@@ -16,7 +16,7 @@ The ML workflow in this project was created with Mlflow. Artifact versioning and
 
 * The pipeline is released here: [https://github.com/bhaskar-kamble/build-ml-pipeline-for-short-term-rental-prices/releases/tag/1.0.1](https://github.com/bhaskar-kamble/build-ml-pipeline-for-short-term-rental-prices/releases/tag/1.0.1).
 
-![Alt text](./nyc_airbnb Artifacts – Weights & Biases.png)
+<img src="./nyc_airbnb Artifacts – Weights & Biases.png">
 
 # Notes for using the pipeline:
 
