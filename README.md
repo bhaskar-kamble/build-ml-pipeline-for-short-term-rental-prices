@@ -1,3 +1,47 @@
+# Short Description
+
+This repo contains my solution to the course project for the course *Building a Reproducible Model Workflow*, the second course of the Machine Learning DevOps Engineer Nanodegree Program offered by Udacity. This repo was forked from the original course project repo at [https://github.com/udacity/build-ml-pipeline-for-short-term-rental-prices].
+
+The project requires to: 
+
+* Complete a reproducible workflow to train a random forest model on Airbnb data. 
+
+* Release the pipeline on github using semantic versioning.
+
+The ML workflow in this project was created with Mlflow. Artifact versioning and tracking was done with wandb. Parameter configuration and hyperparmeter optimization was done with the help of Hydra. Version control of the code was done in this repo and the pipeline was release on Github.
+
+# Important Links Related to the Submission
+
+* The wandb link to the project is here: [https://wandb.ai/kbhaskar-between-jobs/nyc_airbnb] . 
+
+* The pipeline is released here: [https://github.com/bhaskar-kamble/build-ml-pipeline-for-short-term-rental-prices/releases/tag/1.0.1].
+
+# Notes for using the pipeline:
+
+* The pipeline can be used with the following command:
+
+```
+> mlflow run https://github.com/bhaskar-kamble/build-ml-pipeline-for-short-term-rental-prices.git -v 1.0.1 -P hydra_options="etl.sample='sample2.csv'"
+```
+
+***Note to the evaluator:*** Some of the runs for the job type `train_random_forest` during the hyper-parameter optimization were not succesful (for some reason a `BrokenPipeError` was generated during some of the runs, which, while they did not interrupt the flow of the program, may have resulted in these runs not being finished succesfully). Hence I redid this by setting `job_type` as `trf_4`. The best hyperparmater combination for the random forest model is created by the run `tusken-cantina-67` under this job type, as can be seen on the wandb project page: [https://wandb.ai/kbhaskar-between-jobs/nyc_airbnb].
+
+# Considerations for Future Releases
+
+In future releases the model may be updated according to the following considerations:
+
+* The random forest used here will be updated if a better combination for hyperparamters is found than the one used here.
+
+* Boosting methods instead of Random Forest may be employed if they are found to give better results. Models such as Xgboost, Adaboost, Gradient Boosting, Lightgbm, Catboost will be investigated.
+
+The model will also be updated if data drift or model drift is detected.
+
+# Context to the Course
+
+A Machine Learning project typically involves many steps, such as downloading the data, exploratory data analysis, data cleaning, data transformations, model training, hyperparameter optimization, etc. This involves different versions of the data and the code, several parameters, several possibilities of data cleaning steps, hyperparameters, etc., which can make it chaotic and difficult to track and reproduce. MLflow, Weights and Biases, Git and Hydra are popular tools used to avoid these problems and to write reporoducible machine learning workflows. The motivation of this project is to get familiar with these tools and use them to to write reproducible Machine Learning workflows and release ML pipelines.
+
+**The original project description from the forked repo follows below**
+
 # Build an ML Pipeline for Short-Term Rental Prices in NYC
 You are working for a property management company renting rooms and properties for short periods of 
 time on various rental platforms. You need to estimate the typical price for a given property based 
