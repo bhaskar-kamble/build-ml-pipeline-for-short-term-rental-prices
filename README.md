@@ -12,7 +12,9 @@ The ML workflow in this project was created with Mlflow. Artifact versioning and
 
 # Important Links Related to the Submission
 
-* The wandb link to the project is here: [https://wandb.ai/kbhaskar-between-jobs/nyc_airbnb](https://wandb.ai/kbhaskar-between-jobs/nyc_airbnb) . 
+* The wandb link to the project is here: [https://wandb.ai/kbhaskar-between-jobs/nyc_airbnb](https://wandb.ai/kbhaskar-between-jobs/nyc_airbnb).
+
+* The link to the github repo (this repo) is here: [https://github.com/bhaskar-kamble/build-ml-pipeline-for-short-term-rental-prices](https://github.com/bhaskar-kamble/build-ml-pipeline-for-short-term-rental-prices).
 
 * The pipeline is released here: [https://github.com/bhaskar-kamble/build-ml-pipeline-for-short-term-rental-prices/releases/tag/1.0.1](https://github.com/bhaskar-kamble/build-ml-pipeline-for-short-term-rental-prices/releases/tag/1.0.1).
 
