@@ -13,14 +13,16 @@ logger = logging.getLogger()
 
 
 def go(args):
-
+    """
+    Function to do basic cleaning of the raw data and upload cleaned data to W&B
+    """
     run = wandb.init(job_type="basic_cleaning")
     run.config.update(args)
     logger.info("Doing basic data cleaning")
     # Download input artifact. This will also log that this script is using this
     # particular version of the artifact
     artifact_local_path = run.use_artifact(args.input_artifact).file()
-    # args.input_artifact = "sample.csv:latest"
+    # args.input_artifact can be "sample.csv:latest"
     ######################
     # YOUR CODE HERE     #
     df = pd.read_csv(artifact_local_path)
